@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:k_todo_app/pages/about_me_page.dart';
+import 'package:k_todo_app/pages/privacy_policy_page.dart';
 import 'package:provider/provider.dart';
 
 import '../models/todo_model.dart';
@@ -26,6 +28,7 @@ class _TodosPageState extends State<TodosPage> {
             child: Column(
               children: [
                 TodoHeader(),
+                SizedBox(height: 20.0),
                 CreateTodo(),
                 SizedBox(height: 20.0),
                 SearchAndFilterTodo(),
@@ -39,29 +42,99 @@ class _TodosPageState extends State<TodosPage> {
   }
 }
 
+// class TodoHeader extends StatelessWidget {
+//   const TodoHeader({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//       children: [
+//         Text(
+//           'tK-TODO',
+//           style: TextStyle(fontSize: 40.0),
+//         ),
+//         Text(
+//           '${context.watch<ActiveTodoCount>().state.activeTodoCount} items left',
+//           style: TextStyle(
+//             fontSize: 16.0,
+//             color: Colors.redAccent,
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
+
 class TodoHeader extends StatelessWidget {
   const TodoHeader({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          'TODO',
-          style: TextStyle(fontSize: 40.0),
-        ),
-        Text(
-          '${context.watch<ActiveTodoCount>().state.activeTodoCount} items left',
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.redAccent,
-          ),
-        ),
-      ],
-    );
+  void handleMenuSelection(BuildContext context, String choice) {
+  switch (choice) {
+    case 'About me':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AboutMePage()),
+      );
+      break;
+    case 'Privacy policy':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),
+      );
+      break;
+    // Repeat for the other options
+    default:
+      break;
   }
 }
+
+
+@override
+Widget build(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'tK-TODO',
+            style: TextStyle(fontSize: 40.0),
+          ),
+          Text(
+            '${context.watch<ActiveTodoCount>().state.activeTodoCount} items left',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.redAccent,
+            ),
+          ),
+        ],
+      ),
+      PopupMenuButton<String>(
+        onSelected: (choice) => handleMenuSelection(context, choice),
+        itemBuilder: (BuildContext context) {
+          return {
+            'About me',
+            'Privacy policy',
+            'Terms of service',
+            'Help page',
+            'Contact page'
+          }.map((String choice) {
+            return PopupMenuItem<String>(
+              value: choice,
+              child: Text(choice),
+            );
+          }).toList();
+        },
+      ),
+    ],
+  );
+}
+
+}
+
+
 
 class CreateTodo extends StatefulWidget {
   const CreateTodo({Key? key}) : super(key: key);
@@ -151,7 +224,7 @@ class SearchAndFilterTodo extends StatelessWidget {
 
   Color textColor(BuildContext context, Filter filter) {
     final currentFilter = context.watch<TodoFilter>().state.filter;
-    return currentFilter == filter ? Colors.blue : Colors.grey;
+    return currentFilter == filter ? Colors.teal : Colors.grey;
   }
 }
 
