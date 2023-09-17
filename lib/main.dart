@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'tK-TODO',
+        title: ' tK-TODO ',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.teal,
