@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:k_todo_app/pages/Terms_of_service.dart';
 import 'package:k_todo_app/pages/about_me_page.dart';
+import 'package:k_todo_app/pages/contact_page.dart';
+import 'package:k_todo_app/pages/help_page.dart';
 import 'package:k_todo_app/pages/privacy_policy_page.dart';
 import 'package:provider/provider.dart';
 
@@ -83,7 +86,24 @@ class TodoHeader extends StatelessWidget {
         MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),
       );
       break;
-    // Repeat for the other options
+     case 'Terms of service':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TermsOfServicePage()),
+      );
+      break;
+       case 'Help page':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HelpPage()),
+      );
+      break;
+       case 'Contact page':
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ContactPage()),
+      );
+      break;
     default:
       break;
   }
