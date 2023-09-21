@@ -21,7 +21,7 @@ class _ContactPageState extends State<ContactPage> {
             children: [
               // Simple text
               Text(
-                'Contact us for any questions or feedback.',
+                'Contact us for any questions or feedback...',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,),
               ),
               // Contact form
