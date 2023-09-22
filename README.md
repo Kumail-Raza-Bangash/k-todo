@@ -31,7 +31,7 @@ To use tk Todo, simply add new tasks to your list and mark them as complete as y
 ## Getting Started
 To run the app on your local machine, follow these steps:
 
-1. Clone this repository: **git clone [https://github.com/Kumail-Raza-Bangash/Flutter-Instagram-UI.git](https://github.com/Kumail-Raza-Bangash/k-todo)**
+1. Clone this repository: **git clone [https://github.com/Kumail-Raza-Bangash/k-todo.git](https://github.com/Kumail-Raza-Bangash/k-todo.git)**
 2. Navigate to the project directory: **cd k_todo_app**
 3. Install dependencies: **flutter pub get**
 4. Run the app: **flutter run**
