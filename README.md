@@ -29,12 +29,12 @@ To use tk Todo, simply add new tasks to your list and mark them as complete as y
 
 
 ## Getting Started
-To get started with tk Todo, simply clone the repository and run the app:
+To run the app on your local machine, follow these steps:
 
-- git clone https://github.com/Kumail-Raza-Bangash/tk-todo-flutter.git
-- cd tk-todo-flutter
-- flutter pub get
-- flutter run
+1. Clone this repository: **git clone [https://github.com/Kumail-Raza-Bangash/Flutter-Instagram-UI.git](https://github.com/Kumail-Raza-Bangash/k-todo)**
+2. Navigate to the project directory: **cd k_todo_app**
+3. Install dependencies: **flutter pub get**
+4. Run the app: **flutter run**
 
 # Credits
 This app was built by Kumail Raza Bangash using the Flutter framework and the Provider state management package.
